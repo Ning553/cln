@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>陈力宁 — 个人简历</title>
+
+  <!-- Google Fonts: Noto Serif SC (正文) + Noto Sans SC (界面) -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary: rgb(63,97,21);      /* 松针绿 */
+      --accent: rgb(255,204,0);     /* 金陵黄 */
+      --muted: #6b6b6b;
+      --paper: #fbfbfa;
+      --max-width: 980px;
+    }
+
+    /* Reset-ish */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Noto Serif SC", serif;
+      background: linear-gradient(180deg, #f6f8f6 0%, #ffffff 100%);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+    }
+
+    /* Container */
+    .resume {
+      width:100%;
+      max-width:var(--max-width);
+      background:var(--paper);
+      box-shadow: 0 8px 30px rgba(10,20,10,0.08);
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* Header banner */
+    .banner{
+      background: linear-gradient(90deg, var(--primary) 0%, #2f5b18 40%, #1f4512 100%);
+      color:white;
+      padding:22px 28px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .banner .title{
+      font-family: "Noto Sans SC", sans-serif;
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:1px;
+    }
+    .banner .school{
+      margin-left:auto;
+      font-size:13px;
+      color:rgba(255,255,255,0.9);
+      font-weight:600;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    /* Main layout: left content and right sidebar */
+    .content {
+      display:flex;
+      gap:28px;
+      padding:28px;
+    }
+
+    main {
+      flex:1;
+      min-width:0;
+    }
+
+    aside {
+      width:280px;
+      flex-shrink:0;
+    }
+
+    /* Watermark faint image */
+    .watermark{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:0.03;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:220px;
+      color:var(--accent);
+      transform:rotate(-20deg);
+      user-select:none;
+    }
+
+    /* Section headings */
+    .section {
+      margin-bottom:18px;
+    }
+    .section h2{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family:"Noto Sans SC",sans-serif;
+      font-weight:700;
+      color:var(--primary);
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .section h2 .icon{
+      width:34px;height:34px;border-radius:8px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.03));
+      display:flex;align-items:center;justify-content:center;
+      color:var(--primary); border:1px solid rgba(0,0,0,0.04);
+    }
+    .divider {
+      height:3px;
+      width:56px;
+      background:var(--accent);
+      margin:8px 0 14px 0;
+      border-radius:2px;
+      box-shadow:0 1px 0 rgba(0,0,0,0.06) inset;
+    }
+
+    /* small key-value blocks for personal info */
+    .kv-grid{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .kv{
+      flex: 1 1 33%;
+      min-width:140px;
+      font-size:14px;
+    }
+    .kv b{color:var(--primary)}
+
+    /* Lists */
+    .list{margin-left:14px}
+    .list li{margin-bottom:10px;line-height:1.5}
+
+    /* Project / research item */
+    .item-title{font-weight:700;color:#111;margin-bottom:6px}
+    .item-meta{font-size:13px;color:var(--muted);margin-bottom:6px}
+
+    /* Right sidebar card */
+    .card{
+      background:linear-gradient(180deg,#fff,#fbfffa);
+      border-radius:10px;
+      padding:16px;
+      box-shadow:0 6px 18px rgba(10,20,10,0.03);
+      border:1px solid rgba(0,0,0,0.04);
+    }
+    .photo{
+      width:100%;
+      border-radius:8px;
+      overflow:hidden;
+      border:4px solid #fff;
+      box-shadow:0 6px 14px rgba(0,0,0,0.08);
+      margin-bottom:12px;
+    }
+    .photo img{width:100%;height:auto;display:block}
+
+    .contact-line{display:flex;gap:10px;align-items:center;font-size:14px;margin:8px 0;color:#222}
+    .contact-line i{width:20px;text-align:center;color:var(--primary)}
+    .link{color:var(--primary);text-decoration:none;font-weight:600}
+
+    .skill-list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+    .skill-tag{
+      display:inline-block;padding:6px 10px;border-radius:999px;
+      background:linear-gradient(90deg,#fff,#f7fff7);
+      border:1px solid rgba(0,0,0,0.04);
+      font-size:13px;color:#222;font-weight:600;
+    }
+
+    .honors ul{columns:2;list-style:disc;padding-left:22px}
+
+    /* footer contact strip */
+    .footer-strip{
+      background:linear-gradient(90deg, rgba(63,97,21,0.95), rgba(47,91,24,0.95));
+      color:white;
+      padding:12px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      font-size:14px;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .content{flex-direction:column}
+      aside{width:100%}
+    }
+
+    /* Print */
+    @media print{
+      body{background:white;padding:0}
+      .resume{box-shadow:none;border-radius:0}
+      .banner, .footer-strip{background:var(--primary);color:white}
+      .watermark{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="resume" role="document" aria-label="陈力宁 个人简历">
+    <!-- faint watermark (optional logo) -->
+    <div class="watermark" aria-hidden="true">简历</div>
+
+    <!-- Banner -->
+    <header class="banner" role="banner">
+      <div style="display:flex;align-items:center;gap:14px">
+        <!-- small emblem / placeholder -->
+        <div style="width:58px;height:58px;border-radius:10px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:'Noto Sans SC';">
+          <span style="color:var(--accent);font-size:18px">NWU</span>
+        </div>
+        <div>
+          <div class="title">个人简历</div>
+          <div style="font-size:13px;opacity:0.95;margin-top:4px">陈力宁 — 地理信息科学（西北大学）</div>
+        </div>
+      </div>
+
+      <div class="school" aria-hidden="true">
+        <span class="school-name">城市与环境学院 | School of City and Environment</span>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+      <main role="main">
+        <!-- 个人信息 -->
+        <section class="section">
+          <h2><span class="icon"><i class="fa-solid fa-address-card"></i></span> 个人信息</h2>
+          <div class="divider" aria-hidden="true"></div>
+
+          <div class="kv-grid" aria-label="基本信息">
+            <div class="kv"><b>姓 &nbsp;&nbsp; 名：</b> 陈力宁</div>
+            <div class="kv"><b>出生年月：</b> 2004年6月12日</div>
+            <div class="kv"><b>性 &nbsp;&nbsp; 别：</b> 女</div>
+            <div class="kv"><b>政治面貌：</b> 入党积极分子</div>
+            <div class="kv"><b>籍 &nbsp;&nbsp; 贯：</b> 福建省龙岩市</div>
+            <div class="kv"><b>民族：</b> 汉族</div>
+          </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section class="section">
+          <h2><span class="icon"><i class="fa-solid fa-graduation-cap"></i></span> 教育背景</h2>
+          <div class="divider"></div>
+
+          <div class="item">
+            <div class="item-title" style="font-size:16px">西北大学 <span style="font-weight:600;color:var(--muted);font-size:13px">（2022年9月 — 2026年6月）</span></div>
+            <div class="item-meta">城市与环境学院，地理信息科学专业</div>
+
+            <ul class="list">
+              <li>主修课程：微积分Ⅰ（98）、微积分Ⅱ（98）、线性代数（98）、概率论与数理统计（97）、物理学（99）、地理信息系统原理（92）等。</li>
+              <li><b>英语水平：</b> CET4 622，CET6 581</li>
+              <li><b>GPA：</b> 3.7 / 4 &nbsp;&nbsp; <b>排名：</b> 3 / 30</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 科研竞赛 -->
+        <section class="section">
+          <h2><span class="icon"><i class="fa-solid fa-atom"></i></span> 科研 / 竞赛</h2>
+          <div class="divider"></div>
+
+          <div class="item">
+            <div class="item-title">竞赛</div>
+            <ul class="list">
+              <li><b>美国大学生数学建模大赛</b>（2024年12月） — 基于 LSTM 模型，结合东道主优势、运动员年龄等因素预测 2028 年奥运奖牌分布，分析“伟大教练效应”。</li>
+              <li><b>华数杯</b>（2025年8月） — 基于优化遗传算法研究可调控五通道 LED 光源的最优通道权重组合。</li>
+            </ul>
+          </div>
+
+          <div style="height:8px"></div>
+
+          <div class="item">
+            <div class="item-title">项目</div>
+            <ul class="list">
+              <li><b>北洛河流域水生态功能三级分区</b>（2025年3月—2025年7月） — 引入人类经济活动因子，实现三级分区。</li>
+              <li><b>丹江流域水质监测预警溯源系统</b>（2024年10月—2025年8月） — 以重金属锑为研究对象，开展重点河流水污染溯源与水质指纹数据库建设。</li>
+            </ul>
+          </div>
+
+          <div style="height:8px"></div>
+
+          <div class="item">
+            <div class="item-title">科研</div>
+            <ul class="list">
+              <li><b>《基于 TransUNet 的轻量级坐标注意力遥感图像云检测方法研究》</b>（2024年12月—至今） — 第一作者，已投《遥感学报》。基于 UNet 框架引入交叉注意力与轻量注意力模块以提升云检测精度。</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 荣誉奖项 -->
+        <section class="section honors">
+          <h2><span class="icon"><i class="fa-solid fa-chalkboard-teacher"></i></span> 荣誉奖项</h2>
+          <div class="divider"></div>
+
+          <ul>
+            <li>全国大学生数学竞赛一等奖</li>
+            <li>华数杯全国大学生数学建模一等奖</li>
+            <li>全国大学生数学建模大赛二等奖</li>
+            <li>全国大学生测绘学科创新创业智能大赛省三等奖</li>
+            <li>新蚁族杯第八届中国高校地理科学展示大赛全国特等奖</li>
+            <li>外研社全国大学生英语演讲赛、写作赛 校二等奖</li>
+            <li>外研社全国大学生英语辩论赛 校一等奖</li>
+            <li>校一等奖学金</li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- Right sidebar -->
+      <aside>
+        <div class="card" role="complementary" aria-label="联系方式与技能">
+          <div class="photo">
+            <!-- 替换图片路径为 images/150-200px.jpg 或真实照片 -->
+            <img src="cln/150-200px.jpg" style="width:200px; height:auto;" alt="陈力宁 照片">
+          </div>
+
+          <div style="font-weight:800;font-size:18px;color:var(--primary);margin-bottom:6px">陈力宁</div>
+          <div style="color:var(--muted);font-size:13px;margin-bottom:12px">地理信息科学 | 西北大学</div>
+
+          <div class="contact-line"><i class="fa-solid fa-envelope"></i>
+            <div><a class="link" href="mailto:2022116014@nwu.edu.cn">2022116014@nwu.edu.cn</a></div>
+          </div>
+          <div class="contact-line"><i class="fa-solid fa-phone"></i>
+            <div>138 0698 1968</div>
+          </div>
+          <div class="contact-line"><i class="fa-solid fa-globe"></i>
+            <div><a class="link" href="https://blog.csdn.net/xcnn_?type=blog" target="_blank" rel="noopener">CSDN 博客</a></div>
+          </div>
+
+          <hr style="border:none;height:1px;background:rgba(0,0,0,0.06);margin:12px 0">
+
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px">技能与经历</div>
+          <div class="skill-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">HTML / CSS / JS</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">ArcGIS / ENVI</span>
+            <span class="skill-tag">大数据处理与可视化</span>
+          </div>
+
+          <hr style="border:none;height:1px;background:rgba(0,0,0,0.06);margin:12px 0">
+
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px">培训 / 社团</div>
+          <div style="font-size:14px;color:var(--muted)">
+            校英语演讲队、英语辩论队<br>
+            数学建模集训、校算法队<br>
+            青年志愿者协会、三下乡、国旗护卫队
+          </div>
+
+        </div>
+      </aside>
+    </div>
+
+    <!-- Footer contact strip -->
+    <div class="footer-strip" role="contentinfo">
+      <div><i class="fa-solid fa-envelope"></i>&nbsp;2022116014@nwu.edu.cn</div>
+      <div style="opacity:0.7">|</div>
+      <div><i class="fa-solid fa-phone"></i>&nbsp;138 0698 1968</div>
+      <div style="opacity:0.7">|</div>
+      <div><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://blog.csdn.net/xcnn_?type=blog" style="color:inherit;text-decoration:underline" target="_blank" rel="noopener">CSDN 博客</a></div>
+    </div>
+  </div>
+</body>
+</html>
+
